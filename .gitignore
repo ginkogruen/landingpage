@@ -1,5 +1,6 @@
 .DS_Store
 #.idea # not sure will try it out first
+.idea/sonarlint
 
 # Java specific
 lp-backend/target
