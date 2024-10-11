@@ -1,0 +1,14 @@
+* {
+    background: white;
+    color: black;
+}
+
+.heading {
+    text-align: center;
+    background: black;
+    color: white;
+}
+
+.center {
+    text-align: center;
+}
