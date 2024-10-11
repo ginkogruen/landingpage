@@ -1,0 +1,5 @@
+.DS_Store
+#.idea # not sure will try it out first
+
+# Java specific
+lp-backend/target
