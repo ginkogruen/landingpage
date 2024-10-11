@@ -1,6 +1,8 @@
+# macOS
 .DS_Store
-#.idea # not sure will try it out first
-.idea/sonarlint
+
+# IntelliJ
+.idea/
 
 # Java specific
-lp-backend/target
+backend/target
