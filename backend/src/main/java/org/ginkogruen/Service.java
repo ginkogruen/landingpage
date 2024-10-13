@@ -1,12 +1,13 @@
 package org.ginkogruen;
 
-/**
- * Class representing a service configured in 'services.json'.
- * Can hold information for different types of services (dummy, systemd etc.).
- */
+// Class storing information about services.
+// Interaction with services is done through these objects.
 public class Service {
+
+    // Variable representing the services status (true = active)
     private boolean serviceStatus;
 
+    // Variables populated through reading the 'services.json' file
     public String name;
     public String type;
     public String webadress;
@@ -20,4 +21,5 @@ public class Service {
     public void setServiceStatus(boolean serviceStatus) {
         this.serviceStatus = serviceStatus;
     }
+
 }

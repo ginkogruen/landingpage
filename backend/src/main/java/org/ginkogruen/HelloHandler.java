@@ -6,7 +6,9 @@ import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;
 import java.io.OutputStream;
 
+// Class handling '/hello' HTTP requests
 public class HelloHandler implements HttpHandler {
+
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         String response = "Hello World!";
@@ -17,4 +19,5 @@ public class HelloHandler implements HttpHandler {
         outputStream.write(response.getBytes());
         outputStream.close();
     }
+
 }

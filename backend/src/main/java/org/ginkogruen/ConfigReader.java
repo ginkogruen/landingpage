@@ -8,39 +8,22 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
+// Class for reading 'services.json' config file and creating Service objects from it
 public class ConfigReader {
 
-    /**
-     * Get JSON String when given path to '.json' file.
-     *
-     * @param filepath
-     * @return
-     * @throws IOException
-     */
+    // Read JSON file into String
     private String readConfigFile(String filepath) throws IOException {
         return new String(Files.readAllBytes(Path.of(filepath)));
     }
 
-    /**
-     * Convert JSON Array to List of Service objects.
-     *
-     * @param jsonString
-     * @return
-     */
+    // Convert JSON String into List of Service objects
     private List<Service> convertJSONtoList(String jsonString) {
         Gson gson = new Gson();
         return gson.fromJson(jsonString, new TypeToken<List<Service>>() {
         }.getType());
     }
 
-    /**
-     * Get List of Service objects from '.json' configuration file.
-     * Consists of two helper functions.
-     *
-     * @param filepath
-     * @return
-     * @throws IOException
-     */
+    // Combination of methods to convert JSON file to List of Service objects
     public List<Service> getServiceList(String filepath) throws IOException {
         return this.convertJSONtoList(this.readConfigFile(filepath));
     }
