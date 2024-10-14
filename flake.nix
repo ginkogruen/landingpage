@@ -1,5 +1,5 @@
 {
-  description = "Developement and packaging flake for landingpage";
+  description = "Landingpage a simple overview of running processes";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     systems.url = "github:nix-systems/default";
@@ -48,16 +48,39 @@
             };
           };
 
-	  #frontend = pkgs.stdenv.mkDerivation {};
-        };
-
-        nixosModules.landingpage = { config, lib, pkgs, ...}: {
-          options.landingpage.enable = lib.mkOption {
-            type = lib.types.bool;
-            default = true;
-            description = "Enable landingpage";
+          frontend = pkgs.stdenv.mkDerivation {
+            pname = "frontend";
+            version = "1.0";
+            src = ./frontend;
+            meta = {
+              description = "JavaScript frontend displaying service status";
+              license = pkgs.lib.licenses.mit;
+            };
           };
         };
       }
-    );
+    )
+    // {
+      nixosModules.landingpage = {
+        config,
+        lib,
+        pkgs,
+        ...
+      }: {
+        options.landingpage.enable = lib.mkOption {
+          type = lib.types.bool;
+          default = true;
+          description = "Enable landingpage";
+        };
+
+        config = {
+          warnings = if config.landingpage.enable
+          then [
+            ''
+              Landingpage is still WIP. Things may work in unexpected ways.
+            ''
+          ] else [];
+        };
+      };
+    };
 }
