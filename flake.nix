@@ -61,6 +61,7 @@
       }
     )
     // {
+      nixDarwinModules.landingpage = self.nixosModules.landingpage;
       nixosModules.landingpage = {
         config,
         lib,
