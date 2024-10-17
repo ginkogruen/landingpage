@@ -30,18 +30,13 @@
           ];
         };
 
+	/*
         packages = {
           backend = pkgs.stdenv.mkDerivation {
             pname = "backend";
             version = "1.0";
             src = ./backend;
 
-            buildInputs = with pkgs; [maven jdk17];
-            buildPhase = "mvn package";
-            installPhase = ''
-              mkdir -p $out/bin
-              cp target/landingpage-backend.jar $out/bin/
-            '';
             meta = {
               description = "Java backend watching various service status";
               license = pkgs.lib.licenses.mit;
@@ -52,12 +47,14 @@
             pname = "frontend";
             version = "1.0";
             src = ./frontend;
+
             meta = {
               description = "JavaScript frontend displaying service status";
               license = pkgs.lib.licenses.mit;
             };
           };
         };
+	*/
       }
     )
     // {
